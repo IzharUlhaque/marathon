@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -158,4 +158,193 @@ function showSuccess() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
+ -->
 
+ <!-- ----------------------------------------------------- -->
+  <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Great Marathon Registration</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background:#f8f9fa; }
+  </style>
+</head>
+
+<body>
+
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+
+          <h4 class="mb-3 text-center">Marathon Registration Form</h4>
+
+          <!-- FORM -->
+          <form
+            id="gform"
+            method="POST"
+            target="hidden_iframe"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfFXKQogOlcV5Wr7hTd4fr3zwDiZmlgjq0_lOnXFRWrB2XLnQ/formResponse"
+          >
+
+            <!-- FULL NAME -->
+            <div class="mb-3">
+              <label class="form-label">Full Name *</label>
+              <input type="text" class="form-control" required name="entry.797888397">
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+              <label class="form-label">Email *</label>
+              <input type="email" class="form-control" required name="entry.1388384974">
+            </div>
+
+            <!-- MOBILE -->
+            <div class="mb-3">
+              <label class="form-label">Mobile Number *</label>
+              <input type="tel" class="form-control" required name="entry.930297723">
+            </div>
+
+            <!-- AADHAR -->
+            <div class="mb-3">
+              <label class="form-label">Aadhaar Number *</label>
+              <!-- <input type="number" class="form-control" required name="entry.1009491582"> -->
+                              <input
+                  type="text"
+                  class="form-control"
+                  name="entry.1009491582"
+                  required
+                  pattern="[0-9]{12}"
+                  maxlength="12"
+                  inputmode="numeric"
+                  placeholder="12 digit Aadhaar number"
+                />
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="mb-3">
+              <label class="form-label">Full Address *</label>
+              <textarea class="form-control" rows="3" required name="entry.858080035"></textarea>
+            </div>
+
+            <!-- DOB -->
+            <div class="mb-3">
+              <label class="form-label">Date of Birth *</label>
+              <input type="date" class="form-control" required name="entry.711955071">
+            </div>
+
+            <!-- GENDER -->
+            <div class="mb-3">
+              <label class="form-label">Gender *</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.919688900" value="Male">
+                <label class="form-check-label">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.919688900" value="Female">
+                <label class="form-check-label">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.919688900" value="Other">
+                <label class="form-check-label">Other</label>
+              </div>
+            </div>
+
+            <!-- HANDICAPPED -->
+            <div class="mb-3">
+              <label class="form-label">Physically / Mentally Handicapped *</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.2094171336" value="No">
+                <label class="form-check-label">No</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.2094171336" value="Yes">
+                <label class="form-check-label">Yes</label>
+              </div>
+            </div>
+
+            <!-- TSHIRT -->
+            <div class="mb-3">
+              <label class="form-label">T-Shirt Size *</label>
+              <select class="form-select" required name="entry.1021992181">
+                <option value="">Select Size</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XXL">XXL</option>
+              </select>
+            </div>
+
+            <!-- PAYMENT -->
+            <div class="text-center my-3">
+              <p class="fw-bold">Registration Fee: ₹500</p>
+              <img src="assets/qr-code-s.png" class="img-fluid mb-2" style="max-width:250px;">
+              <p class="small">Send payment receipt to WhatsApp</p>
+              <a href="https://wa.me/917972578980" class="btn btn-outline-success rounded-0">
+               7972 57 8980
+              </a>
+            </div>
+
+            <!-- TERMS (LOCKED) -->
+            <div class="form-check my-3">
+              <input class="form-check-input" type="checkbox" checked disabled>
+              <label class="form-check-label">
+                By registering, you accept Terms & Conditions
+              </label>
+            </div>
+
+            <!-- TERMS VALUE FOR GOOGLE -->
+            <input type="hidden" name="entry.1584727641" value="I accept">
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HIDDEN IFRAME -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+  onload="if(submitted) showSuccess();"></iframe>
+
+<!-- SCRIPT -->
+<script>
+let submitted = false;
+
+document.getElementById('gform').addEventListener('submit', function () {
+  submitted = true;
+});
+
+function showSuccess() {
+  submitted = false;
+  document.getElementById('gform').innerHTML = `
+    <div class="alert alert-success text-center">
+      <h4>Share Payment Recipt On WhatsApp</h4>
+        <a href="https://wa.me/917972578980" class="btn btn-outline-success rounded-0">
+          7972 57 8980
+        </a>
+      <p class="m-0">After sending payment reciept you will get confirmation mail.</p>
+      <p class="m-0">Please keep your payment receipt safe.</p>
+
+      <button class="btn btn-primary mt-3" onclick="location.reload()">
+        Register Another Participant
+      </button>
+    </div>
+  `;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
